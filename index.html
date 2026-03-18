@@ -11,31 +11,33 @@
     <link rel="icon" href="sthesh_portfolio.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <style>
         :root {
             --ghost-white: #F9FAFB; --electric-blue: #0066FF; --deep-navy: #0A0F1C;
             --text-main: #1F2937; --text-muted: #6B7280; --glass: rgba(255, 255, 255, 0.8);
-            --border: rgba(0, 102, 255, 0.1);
+            --border: rgba(0, 102, 255, 0.1); --card-bg: #FFFFFF;
         }
-        /* Dark Mode Overrides */
         body.dark-mode {
-            --ghost-white: #0f172a; --deep-navy: #f8fafc;
-            --text-main: #f1f5f9; --text-muted: #94a3b8;
-            --glass: rgba(15, 23, 42, 0.9); --border: rgba(255, 255, 255, 0.1);
+            --ghost-white: #0f172a; --deep-navy: #f8fafc; --text-main: #f1f5f9;
+            --text-muted: #94a3b8; --glass: rgba(15, 23, 42, 0.9);
+            --border: rgba(255, 255, 255, 0.1); --card-bg: #1e293b;
         }
         * { box-sizing: border-box; scroll-behavior: smooth; margin: 0; padding: 0; }
-        body { background-color: var(--ghost-white); font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text-main); transition: 0.3s; }
+        body { background-color: var(--ghost-white); font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text-main); transition: 0.3s; line-height: 1.7; }
         nav { padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; background: var(--glass); backdrop-filter: blur(12px); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
         .logo { font-weight: 800; font-size: 1.4rem; color: var(--deep-navy); }
         .logo span { color: var(--electric-blue); }
         .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 10%; }
-        .badge { background: #EBF5FF; color: var(--electric-blue); padding: 6px 16px; border-radius: 100px; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 24px; border: 1px solid rgba(0, 102, 255, 0.2); }
         .hero h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 800; color: var(--deep-navy); margin-bottom: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 80px 10%; }
+        .card { background: var(--card-bg); padding: 40px; border-radius: 24px; border: 1px solid var(--border); transition: 0.3s; }
+        .card h3 { color: var(--deep-navy); margin: 10px 0; }
         .btn-primary { background: var(--electric-blue); color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; }
-        #chat-widget { position: fixed; bottom: 100px; right: 30px; width: 350px; background: white; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); display: none; flex-direction: column; z-index: 3000; }
-        .chat-toggle { position: fixed; bottom: 30px; right: 30px; background: var(--deep-navy); color: white; padding: 15px 25px; border-radius: 50px; cursor: pointer; z-index: 2999; }
-        .dark-toggle { position: fixed; top: 20px; right: 20px; z-index: 9999; padding: 10px; cursor: pointer; border-radius: 50%; border: none; background: var(--electric-blue); color: white; font-size: 20px; }
+        .dark-toggle { position: fixed; top: 20px; right: 20px; z-index: 9999; width: 45px; height: 45px; border-radius: 50%; border: none; cursor: pointer; background: var(--electric-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        #chat-widget { position: fixed; bottom: 100px; right: 30px; width: 350px; background: var(--card-bg); border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); display: none; flex-direction: column; z-index: 3000; border: 1px solid var(--border); }
+        .chat-toggle { position: fixed; bottom: 30px; right: 30px; background: var(--deep-navy); color: var(--ghost-white); padding: 15px 25px; border-radius: 50px; cursor: pointer; z-index: 2999; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid var(--electric-blue); }
+        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
@@ -44,23 +46,32 @@
         <div class="logo">ATHABILE <span>DINILANGA</span></div>
     </nav>
     <section id="home" class="hero">
-        <div class="badge">Cybersecurity Analyst & Developer</div>
+        <div class="badge" style="background: rgba(0,102,255,0.1); color: var(--electric-blue); padding: 5px 15px; border-radius: 20px; font-weight: 700; margin-bottom: 20px;">Cybersecurity Analyst & Developer</div>
         <h1>Securing the Future,<br>One Line at a Time.</h1>
-        <p id="typewriter"></p>
-        <div style="display: flex; gap: 15px; margin-top: 20px;">
-            <a href="#projects" class="btn-primary">View Portfolio</a>
+        <p id="typewriter" style="color: var(--text-muted); max-width: 600px;"></p>
+        <div style="margin-top: 30px;"><a href="#projects" class="btn-primary">View Portfolio</a></div>
+    </section>
+    <section id="projects">
+        <h2 style="text-align: center; color: var(--deep-navy); font-size: 2.2rem;" class="reveal">Production Deployments</h2>
+        <div class="grid">
+            <div class="card reveal"><i class="fas fa-shield-halved" style="color: var(--electric-blue); font-size: 2rem;"></i><h3>StheshHackers</h3><p style="color: var(--text-muted);">Penetration testing utility for web infrastructure.</p><a href="https://stheshana07.github.io/stheshHackers-hackingtool/" target="_blank" style="color: var(--electric-blue); font-weight: 700; text-decoration: none;">Analyze Tool →</a></div>
+            <div class="card reveal"><i class="fas fa-brain" style="color: var(--electric-blue); font-size: 2rem;"></i><h3>StheshBot AI</h3><p style="color: var(--text-muted);">Advanced AI conversational interface.</p><a href="https://stheshbot.vercel.app" target="_blank" style="color: var(--electric-blue); font-weight: 700; text-decoration: none;">Launch AI →</a></div>
+            <div class="card reveal"><i class="fas fa-temperature-high" style="color: var(--electric-blue); font-size: 2rem;"></i><h3>Sthesh Weather</h3><p style="color: var(--text-muted);">Dynamic meteorological data platform.</p><a href="https://stheshweather.netlify.app" target="_blank" style="color: var(--electric-blue); font-weight: 700; text-decoration: none;">Check Status →</a></div>
+            <div class="card reveal"><i class="fas fa-stopwatch-20" style="color: var(--electric-blue); font-size: 2rem;"></i><h3>Sthesh Countdown</h3><p style="color: var(--text-muted);">Security-focused event tracking utility.</p><a href="https://stheshcountdown.netlify.app" target="_blank" style="color: var(--electric-blue); font-weight: 700; text-decoration: none;">Open Utility →</a></div>
         </div>
     </section>
     <div class="chat-toggle" onclick="toggleChat()"><i class="fas fa-shield-halved"></i> Security Assistant</div>
     <div id="chat-widget">
-        <div style="background:var(--deep-navy); color:white; padding:20px;">STHESHBOT CORE v2.5</div>
-        <div id="chat-display" style="height:300px; padding:20px; overflow-y:auto; color:black;">Greetings. I am the StheshBot Security Interface.</div>
+        <div style="background:var(--deep-navy); color:var(--ghost-white); padding:20px; font-weight: 700;">STHESHBOT CORE v2.5</div>
+        <div id="chat-display" style="height:300px; padding:20px; overflow-y:auto; color: #1a202c; background: #fff;">Greetings. I am the StheshBot Security Interface.</div>
     </div>
     <script>
         const text = "Specializing in Building Resilient Web Applications and Advanced Security Analysis.";
         let i = 0; function typeWriter() { if (i < text.length) { document.getElementById("typewriter").innerHTML += text.charAt(i); i++; setTimeout(typeWriter, 35); } }
         function toggleChat() { const chat = document.getElementById('chat-widget'); chat.style.display = (chat.style.display === 'flex') ? 'none' : 'flex'; }
-        window.onload = typeWriter;
+        function reveal() { document.querySelectorAll(".reveal").forEach(r => { if (r.getBoundingClientRect().top < window.innerHeight - 100) r.classList.add("active"); }); }
+        window.onload = () => { typeWriter(); reveal(); }; window.onscroll = reveal;
     </script>
+    <img width=0 height=0 src="image1.jpg"><img width=0 height=0 src="image2.jpg"><img width=0 height=0 src="image3.jpg"><img width=0 height=0 src="image4.jpg"><img width=0 height=0 src="image5.jpg"><img width=0 height=0 src="image6.jpg"><img width=0 height=0 src="image7.jpg"><img width=0 height=0 src="image8.jpg"><img width=0 height=0 src="image9.jpg"><img width=0 height=0 src="image10.jpg"><img width=0 height=0 src="image11.jpg"><img width=0 height=0 src="image12.jpg"><img width=0 height=0 src="image13.jpg"><img width=0 height=0 src="sthesh_portfolio.png">
 </body>
 </html>
