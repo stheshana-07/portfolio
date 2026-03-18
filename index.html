@@ -2,37 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="google-site-verification" content="fcVORrJMNKHGHEe9sYfByY_lGYMsE9RYwLDZuoIM6GU" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="https://stheshportfolio.netlify.app/"/>
-    <meta name="keywords" content="Athabile, Athabile Dinilanga, Dinilanga, stheshana07, Stheshana, stheshana portfolio, stheshHackers">
-    <meta name="description" content="Official portfolio of Athabile 'Stheshana' Dinilanga. Cyber-Web developer specializing in Security Analysis and Frontend Development.">
-    <title>Athabile Dinilanga</title>
-    <link rel="icon" href="sthesh_portfolio.png">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://stheshportfolio.netlify.app/">
-    <meta property="og:title" content="Athabile Dinilanga">
-    <meta property="og:image" content="https://stheshportfolio.netlify.app/image12.jpg">
-    <meta property="tiktok:card" content="This user does not showcase his work on TikTok">
-    <meta property="tiktok:title" content="Athabile Dinilanga">
-    <meta property="tiktok:image" content="https://stheshportfolio.netlify.app/image12.jpg">
-    <meta property="og:title" content="Sthesh | Developer Portfolio">
-    <meta property="og:description" content="Athabile Dinilanga's portfolio website">
-    <meta property="og:image" content="https://stheshportfolio.netlify.app/sthesh_portfolio.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Athabile Dinilanga | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <meta name="google-site-verification" content="google0ce29147459038b5.html" />
-    <script type="application/ld+json">
-        {
-          "@context": "https://schema.org/",
-          "@type": "Person",
-          "name": "Athabile Dinilanga",
-          "jobTitle": "Cybersecurity Analyst & Web Developer",
-          "url": "https://stheshportfolio.netlify.app/",
-          "image": "https://stheshportfolio.netlify.app/image12.jpg",
-          "sameAs": [
-            "https://github.com/StheshHackers"
-          ]
-        }
-    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --bg: #F9FAFB; --text: #1F2937; --muted: #6B7280; --navy: #0A0F1C; --blue: #0066FF; --card: #FFFFFF; }
+        body.dark-mode { --bg: #0f172a; --text: #f8fafc; --muted: #94a3b8; --navy: #ffffff; --card: #1e293b; }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; transition: 0.3s; line-height: 1.7; }
+        
+        nav { padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; background: rgba(255,255,255,0.1); backdrop-filter: blur(12px); }
+        .logo { font-weight: 800; font-size: 1.4rem; color: var(--navy); }
+        .logo span { color: var(--blue); }
+
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 10%; }
+        .badge { background: #EBF5FF; color: var(--blue); padding: 6px 16px; border-radius: 100px; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 24px; border: 1px solid rgba(0,102,255,0.2); }
+        h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 800; color: var(--navy); line-height: 1.1; margin-bottom: 20px; }
+        p { font-size: 1.15rem; max-width: 650px; color: var(--muted); margin-bottom: 40px; }
+
+        .btn-primary { background: var(--blue); color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; box-shadow: 0 10px 20px rgba(0,102,255,0.2); }
+        
+        .dark-toggle { position: fixed; top: 20px; right: 20px; z-index: 9999; width: 45px; height: 45px; border-radius: 50%; border: none; cursor: pointer; background: var(--blue); color: white; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body>
+    <button class="dark-toggle" onclick="document.body.classList.toggle('dark-mode')">🌙</button>
+    <nav>
+        <div class="logo">ATHABILE <span>DINILANGA</span></div>
+    </nav>
+    <section class="hero">
+        <div class="badge">Cybersecurity Analyst & Developer</div>
+        <h1>Securing the Future,<br>One Line at a Time.</h1>
+        <p>Specializing in Building Resilient Web Applications and Advanced Security Analysis.</p>
+        <div style="display: flex; gap: 15px;">
+            <a href="#projects" class="btn-primary">View Portfolio</a>
+        </div>
+    </section>
+</body>
+</html>
