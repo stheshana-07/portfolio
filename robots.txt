@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://portfolioweb.dinilangaathabile.workers.dev/sitemap.xml
