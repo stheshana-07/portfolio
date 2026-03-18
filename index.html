@@ -25,9 +25,13 @@
         .logo span { color: var(--electric-blue); }
         .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 10%; }
         .hero h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 800; color: var(--deep-navy); margin-bottom: 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 80px 10%; }
-        .card { background: var(--card-bg); padding: 40px; border-radius: 24px; border: 1px solid var(--border); transition: 0.3s; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 40px 10% 80px 10%; }
+        .card { background: var(--card-bg); padding: 40px; border-radius: 24px; border: 1px solid var(--border); transition: 0.3s; display: flex; flex-direction: column; gap: 15px; }
+        .card i { font-size: 2rem; color: var(--electric-blue); }
+        .card h3 { color: var(--deep-navy); }
+        .card a { color: var(--electric-blue); text-decoration: none; font-weight: 700; margin-top: auto; }
         .btn-primary { background: var(--electric-blue); color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; transition: 0.3s; }
+        .btn-secondary { border: 2px solid var(--border); color: var(--text-main); padding: 14px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; }
         .dark-toggle { position: fixed; top: 20px; right: 20px; z-index: 9999; width: 45px; height: 45px; border-radius: 50%; border: none; cursor: pointer; background: var(--electric-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
         footer { padding: 80px 10%; background: var(--deep-navy); color: var(--ghost-white); text-align: center; }
         .social-links { display: flex; justify-content: center; gap: 25px; margin-bottom: 30px; }
@@ -46,19 +50,24 @@
         </div>
     </nav>
     <section id="home" class="hero">
+        <div class="badge" style="background: rgba(0,102,255,0.1); color: var(--electric-blue); padding: 5px 15px; border-radius: 20px; font-weight: 700; margin-bottom: 20px;">Cybersecurity Analyst & Developer</div>
         <h1>Securing the Future,<br>One Line at a Time.</h1>
         <p id="typewriter" style="color: var(--text-muted); max-width: 600px;"></p>
+        <div style="margin-top: 30px;">
+            <a href="#contact" class="btn-secondary">Get in Touch</a>
+        </div>
     </section>
     <section id="projects">
-        <h2 style="text-align: center; color: var(--deep-navy); margin-bottom: 40px;" class="reveal">Production Deployments</h2>
+        <h2 style="text-align: center; color: var(--deep-navy); font-size: 2.2rem;" class="reveal">Production Deployments</h2>
         <div class="grid">
-            <div class="card reveal"><h3>StheshHackers</h3><p>Penetration testing utility.</p><a href="https://stheshana07.github.io/stheshHackers-hackingtool/" target="_blank">Analyze Tool →</a></div>
-            <div class="card reveal"><h3>StheshBot AI</h3><p>Advanced conversational interface.</p><a href="https://stheshbot.vercel.app" target="_blank">Launch AI →</a></div>
+            <div class="card reveal"><i class="fas fa-shield-halved"></i><h3>StheshHackers</h3><p>Penetration testing utility for web infrastructure.</p><a href="https://stheshana07.github.io/stheshHackers-hackingtool/" target="_blank">Analyze Tool →</a></div>
+            <div class="card reveal"><i class="fas fa-brain"></i><h3>StheshBot AI</h3><p>Advanced AI conversational interface.</p><a href="https://stheshbot.vercel.app" target="_blank">Launch AI →</a></div>
+            <div class="card reveal"><i class="fas fa-temperature-high"></i><h3>Sthesh Weather</h3><p>Dynamic meteorological data platform.</p><a href="https://stheshweather.netlify.app" target="_blank">Check Status →</a></div>
+            <div class="card reveal"><i class="fas fa-stopwatch-20"></i><h3>Sthesh Countdown</h3><p>Security-focused event tracking utility.</p><a href="https://stheshcountdown.netlify.app" target="_blank">Open Utility →</a></div>
         </div>
     </section>
     <section id="contact" style="padding: 100px 10%; text-align: center;" class="reveal">
-        <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Ready to collaborate?</h2>
-        <p style="color: var(--text-muted); margin-bottom: 40px;">Currently accepting freelance projects and security consultations.</p>
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: var(--deep-navy);">Ready to collaborate?</h2>
         <div style="display: flex; flex-direction: column; gap: 10px; font-weight: 600;">
             <span><i class="fas fa-envelope" style="color:var(--electric-blue)"></i> dinilangaathabile@gmail.com</span>
             <span><i class="fab fa-whatsapp" style="color:var(--electric-blue)"></i> +27 66 085 1108</span>
