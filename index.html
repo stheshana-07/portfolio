@@ -2,29 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-site-verification" content="fcVORrJMNKHGHEe9sYfByY_lGYMsE9RYwLDZuoIM6GU" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Athabile Dinilanga | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://stheshportfolio.netlify.app/"/>
+    <meta name="keywords" content="Athabile, Athabile Dinilanga, Dinilanga, stheshana07, Stheshana, stheshana portfolio, stheshHackers">
+    <meta name="description" content="Official portfolio of Athabile 'Stheshana' Dinilanga. Cyber-Web developer specializing in Security Analysis and Frontend Development.">
+    <title>Athabile Dinilanga</title>
+    <link rel="icon" href="sthesh_portfolio.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
-        :root { --bg: #F9FAFB; --text: #1F2937; --muted: #6B7280; --navy: #0A0F1C; --blue: #0066FF; --card: #FFFFFF; }
-        body.dark-mode { --bg: #0f172a; --text: #f8fafc; --muted: #94a3b8; --navy: #ffffff; --card: #1e293b; }
-        
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; transition: 0.3s; line-height: 1.7; }
-        
-        nav { padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; background: rgba(255,255,255,0.1); backdrop-filter: blur(12px); }
-        .logo { font-weight: 800; font-size: 1.4rem; color: var(--navy); }
-        .logo span { color: var(--blue); }
-
+        :root {
+            --ghost-white: #F9FAFB; --electric-blue: #0066FF; --deep-navy: #0A0F1C;
+            --text-main: #1F2937; --text-muted: #6B7280; --glass: rgba(255, 255, 255, 0.8);
+            --border: rgba(0, 102, 255, 0.1);
+        }
+        /* Dark Mode Overrides */
+        body.dark-mode {
+            --ghost-white: #0f172a; --deep-navy: #f8fafc;
+            --text-main: #f1f5f9; --text-muted: #94a3b8;
+            --glass: rgba(15, 23, 42, 0.9); --border: rgba(255, 255, 255, 0.1);
+        }
+        * { box-sizing: border-box; scroll-behavior: smooth; margin: 0; padding: 0; }
+        body { background-color: var(--ghost-white); font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text-main); transition: 0.3s; }
+        nav { padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; background: var(--glass); backdrop-filter: blur(12px); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
+        .logo { font-weight: 800; font-size: 1.4rem; color: var(--deep-navy); }
+        .logo span { color: var(--electric-blue); }
         .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 10%; }
-        .badge { background: #EBF5FF; color: var(--blue); padding: 6px 16px; border-radius: 100px; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 24px; border: 1px solid rgba(0,102,255,0.2); }
-        h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 800; color: var(--navy); line-height: 1.1; margin-bottom: 20px; }
-        p { font-size: 1.15rem; max-width: 650px; color: var(--muted); margin-bottom: 40px; }
-
-        .btn-primary { background: var(--blue); color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; box-shadow: 0 10px 20px rgba(0,102,255,0.2); }
-        
-        .dark-toggle { position: fixed; top: 20px; right: 20px; z-index: 9999; width: 45px; height: 45px; border-radius: 50%; border: none; cursor: pointer; background: var(--blue); color: white; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .badge { background: #EBF5FF; color: var(--electric-blue); padding: 6px 16px; border-radius: 100px; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 24px; border: 1px solid rgba(0, 102, 255, 0.2); }
+        .hero h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 800; color: var(--deep-navy); margin-bottom: 20px; }
+        .btn-primary { background: var(--electric-blue); color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; }
+        #chat-widget { position: fixed; bottom: 100px; right: 30px; width: 350px; background: white; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); display: none; flex-direction: column; z-index: 3000; }
+        .chat-toggle { position: fixed; bottom: 30px; right: 30px; background: var(--deep-navy); color: white; padding: 15px 25px; border-radius: 50px; cursor: pointer; z-index: 2999; }
+        .dark-toggle { position: fixed; top: 20px; right: 20px; z-index: 9999; padding: 10px; cursor: pointer; border-radius: 50%; border: none; background: var(--electric-blue); color: white; font-size: 20px; }
     </style>
 </head>
 <body>
@@ -32,38 +43,24 @@
     <nav>
         <div class="logo">ATHABILE <span>DINILANGA</span></div>
     </nav>
-    <section id="home" class="hero"> 
-        <div class="badge">Cybersecurity Analyst & Developer</div> 
-        <h1>Securing the Future,<br>One Line at a Time.</h1> 
-        <p>Specializing in Building Resilient Web Applications and Advanced Security Analysis.</p> 
-        <div style="display: flex; gap: 15px;"> 
-            <a href="#projects" class="btn-primary">View Portfolio</a> 
-        </div> 
-    </section> 
-    <section id="projects" style="padding: 100px 8%;"> 
-        <h2 style="text-align:center; margin-bottom:50px;">Production Deployments</h2> 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;"> 
-            <div class="card" style="padding:30px; border:1px solid #eee; border-radius:20px;"> 
-                <i class="fas fa-shield-halved" style="font-size:2rem; color:#0066FF;"></i> 
-                <h3>StheshHackers</h3> 
-                <p>High-performance penetration testing utility for web infrastructure auditing.</p> 
-                <a href="https://stheshana07.github.io/stheshHackers-hackingtool/" target="_blank" style="color:#0066FF; text-decoration:none; font-weight:700;">Analyze Tool →</a> 
-            </div> 
-            <div class="card" style="padding:30px; border:1px solid #eee; border-radius:20px;"> 
-                <i class="fas fa-brain" style="font-size:2rem; color:#0066FF;"></i> 
-                <h3>StheshBot AI</h3> 
-                <p>Advanced AI conversational interface with serverless logic processing.</p> 
-                <a href="https://stheshbot.vercel.app" target="_blank" style="color:#0066FF; text-decoration:none; font-weight:700;">Launch AI →</a> 
-            </div> 
-        </div> 
-    </section>
-    <section class="hero">
+    <section id="home" class="hero">
         <div class="badge">Cybersecurity Analyst & Developer</div>
         <h1>Securing the Future,<br>One Line at a Time.</h1>
-        <p>Specializing in Building Resilient Web Applications and Advanced Security Analysis.</p>
-        <div style="display: flex; gap: 15px;">
+        <p id="typewriter"></p>
+        <div style="display: flex; gap: 15px; margin-top: 20px;">
             <a href="#projects" class="btn-primary">View Portfolio</a>
         </div>
     </section>
+    <div class="chat-toggle" onclick="toggleChat()"><i class="fas fa-shield-halved"></i> Security Assistant</div>
+    <div id="chat-widget">
+        <div style="background:var(--deep-navy); color:white; padding:20px;">STHESHBOT CORE v2.5</div>
+        <div id="chat-display" style="height:300px; padding:20px; overflow-y:auto; color:black;">Greetings. I am the StheshBot Security Interface.</div>
+    </div>
+    <script>
+        const text = "Specializing in Building Resilient Web Applications and Advanced Security Analysis.";
+        let i = 0; function typeWriter() { if (i < text.length) { document.getElementById("typewriter").innerHTML += text.charAt(i); i++; setTimeout(typeWriter, 35); } }
+        function toggleChat() { const chat = document.getElementById('chat-widget'); chat.style.display = (chat.style.display === 'flex') ? 'none' : 'flex'; }
+        window.onload = typeWriter;
+    </script>
 </body>
 </html>
