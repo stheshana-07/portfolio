@@ -1,1 +1,5 @@
-body.dark-mode { background: #121212  color: #e0e0e0 !important; } body.dark-mode a { color: #bb86fc; }
+:root { --bg: #ffffff; --text: #1a1a1a; --btn-bg: #eee; }
+body.dark-mode { --bg: #0f172a; --text: #f8fafc; --btn-bg: #334155; }
+body { background-color: var(--bg) \!important; color: var(--text) \!important; transition: 0.4s; }
+h1, h2, h3, p, span { color: var(--text) \!important; }
+.dark-toggle { position: fixed; top: 20px; right: 20px; z-index: 1000; padding: 12px; cursor: pointer; border-radius: 50%; border: none; background: var(--btn-bg); font-size: 20px; }
