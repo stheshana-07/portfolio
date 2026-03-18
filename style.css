@@ -3,21 +3,16 @@
     --text-main: #1F2937;
     --text-muted: #6B7280;
     --deep-navy: #0A0F1C;
-    --glass: rgba(255, 255, 255, 0.8);
     --card-bg: #FFFFFF;
 }
-
 body.dark-mode {
     --bg: #0f172a;
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
     --deep-navy: #ffffff;
-    --glass: rgba(15, 23, 42, 0.9);
     --card-bg: #1e293b;
 }
-
 body { background-color: var(--bg) \!important; color: var(--text-main) \!important; transition: 0.3s; }
-h1, h2, h3, .logo { color: var(--deep-navy) \!important; }
+h1, h2, h3, .logo, .logo span { color: var(--deep-navy) \!important; }
 p, #typewriter { color: var(--text-muted) \!important; }
-nav { background: var(--glass) \!important; }
-.card { background: var(--card-bg) \!important; color: var(--text-main) \!important; }
+.card { background: var(--card-bg) \!important; }
