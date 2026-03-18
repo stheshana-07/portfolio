@@ -3,16 +3,23 @@
     --text-main: #1F2937;
     --text-muted: #6B7280;
     --deep-navy: #0A0F1C;
-    --card-bg: #FFFFFF;
+    --glass: rgba(255, 255, 255, 0.8);
+    --border: rgba(0, 102, 255, 0.1);
+    --electric-blue: #0066FF;
 }
+
 body.dark-mode {
     --bg: #0f172a;
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
     --deep-navy: #ffffff;
-    --card-bg: #1e293b;
+    --glass: rgba(15, 23, 42, 0.9);
+    --border: rgba(255, 255, 255, 0.1);
 }
-body { background-color: var(--bg) \!important; color: var(--text-main) \!important; transition: 0.3s; }
-h1, h2, h3, .logo, .logo span { color: var(--deep-navy) \!important; }
-p, #typewriter { color: var(--text-muted) \!important; }
-.card { background: var(--card-bg) \!important; }
+
+body { background-color: var(--bg) \!important; color: var(--text-main) \!important; font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.7; transition: 0.3s; margin:0; }
+nav { background: var(--glass) \!important; backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); position: fixed; width: 100%; top: 0; z-index: 1000; padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; }
+.hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 10%; }
+h1, .logo { color: var(--deep-navy) \!important; font-weight: 800; }
+p { color: var(--text-muted) \!important; }
+.btn-primary { background: var(--electric-blue); color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; }
