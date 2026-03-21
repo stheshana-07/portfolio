@@ -189,6 +189,21 @@
         </div>
         <p style="opacity: 0.5; font-size: 0.85rem;">© 2026 Athabile Dinilanga. Engineered for Security & Speed.</p>
     </footer>
+    <div class="chat-toggle" onclick="toggleChat()">StheshBot AI</div>
+
+    <div id="chat-widget">
+        <div id="chat-header">
+            <span>StheshBot AI v2.0</span>
+            <span style="cursor:pointer" onclick="toggleChat()">×</span>
+        </div>
+        <div id="chat-display">
+            <div class="bot-msg">System: Initialized. <br><br> Yo! It's Bart. Type <b>'help'</b> to see what I can do for you.</div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Type a message..." onkeypress="if(event.key==='Enter')sendMessage()">
+            <button class="send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
     
     <img src="image1.jpg" width="0" height="0">
     <img src="image2.jpg" width="0" height="0">
