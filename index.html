@@ -220,17 +220,38 @@
     <img src="image13.jpg" width="0" height="0">
     <img src="sthesh_portfolio.png" width="0" height="0">
     <script>
-        const text = `I am a South African based Web Developer and Cybersecurity Analyst.
-        I specialize in building high-performance web applications and ensuring they are resilient against modern cyber threats.
-        I use the "if not secured it's unfit" rule.`;
-        let i = 0; function typeWriter() { if (i < text.length) { document.getElementById("typewriter").innerHTML += text.charAt(i); i++; setTimeout(typeWriter, 35); } }
-        function reveal() { document.querySelectorAll(".reveal").forEach(r => { if (r.getBoundingClientRect().top < window.innerHeight - 100) r.classList.add("active"); }); }
-        window.onload = () => {
-            typeWriter();
-            reveal();
-        };
-        window.onscroll = reveal;
-    </script>
+    const typeText = `I am a South African based Web Developer and Cybersecurity Analyst.
+    I specialize in building high-performance web applications and ensuring they are resilient against modern cyber threats.
+    I use the "if not secured it's unfit" rule.`;
+    
+    let index = 0; 
+    const speed = 35;
+
+    function startTypewriter() {
+        const element = document.getElementById("typewriter");
+        if (index < typeText.length) {
+            element.innerHTML += typeText.charAt(index);
+            index++;
+            setTimeout(startTypewriter, speed);
+        }
+    }
+
+    // Use this instead of window.onload to avoid conflicts
+    document.addEventListener("DOMContentLoaded", () => {
+        startTypewriter();
+        reveal(); // Initial check for reveal elements
+    });
+
+    function reveal() { 
+        document.querySelectorAll(".reveal").forEach(r => { 
+            if (r.getBoundingClientRect().top < window.innerHeight - 100) {
+                r.classList.add("active");
+            }
+        }); 
+    }
+
+    window.onscroll = reveal;
+</script>
     <script src="darkmode.js"></script>
         <script>
         function toggleChat() {
