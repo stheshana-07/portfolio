@@ -1,12 +1,26 @@
+// Remove the duplicate button from HTML and setup the logic
+const existingBtn = document.querySelector('.dark-toggle');
+if (existingBtn) existingBtn.remove();
+
 const toggle = document.createElement("button");
 toggle.innerHTML = "🌙";
 toggle.className = "dark-toggle";
-toggle.style.cssText = "position:fixed;top:20px;right:20px;z-index:9999;padding:12px;cursor:pointer;border-radius:50%;border:none;background:#0066FF;color:white;font-size:20px;box-shadow:0 4px 12px rgba(0,0,0,0.2);";
 document.body.appendChild(toggle);
 
+// Fix hardcoded backgrounds so they use the variables
+document.querySelectorAll('#about, .card, footer, #chat-widget, #chat-display').forEach(el => {
+    el.style.backgroundColor = 'var(--card-bg)';
+    el.style.color = 'var(--text-main)';
+});
+
 toggle.onclick = () => {
-    document.body.classList.toggle("dark-mode");
-    const isDark = document.body.classList.contains("dark-mode");
+    const isDark = document.body.classList.toggle("dark-mode");
     toggle.innerHTML = isDark ? "☀️" : "🌙";
-    toggle.style.background = isDark ? "#facc15" : "#0066FF";
+    localStorage.setItem("theme", isDark ? "dark" : "light");
 };
+
+// Persistent Theme Load
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    toggle.innerHTML = "☀️";
+}
