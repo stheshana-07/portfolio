@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Theme Toggle Setup
     const toggleBtn = document.createElement("button");
     toggleBtn.className = "dark-toggle";
     toggleBtn.innerHTML = "🌙";
@@ -14,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleBtn.onclick = () => setTheme(!document.body.classList.contains("dark-mode"));
     if (localStorage.getItem("theme") === "dark") setTheme(true);
 
-    // 2. Typewriter Effect
     const typeText = `I am a South African based Web Developer and Cybersecurity Analyst. I specialize in building high-performance web applications...`;
     let idx = 0;
     const speed = 35;
@@ -25,8 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
     type();
-
-    // 3. Scroll Reveal
     const reveal = () => {
         document.querySelectorAll(".reveal").forEach(r => {
             if (r.getBoundingClientRect().top < window.innerHeight - 100) r.classList.add("active");
@@ -35,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.onscroll = reveal;
     reveal();
 
-    // 4. Chatbot Logic
     const chatWidget = document.getElementById('chat-widget');
     const chatInput = document.getElementById('chat-input');
     const chatDisplay = document.getElementById('chat-display');
