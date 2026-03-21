@@ -3,293 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Athabile Dinilanga</title>
+    <title>Athabile Dinilanga | Portfolio</title>
     <link rel="icon" href="sthesh_portfolio.png">
+    <meta name="description" content="This is my portfolio website. Here I shoowcase my projects and my contact information">
+    <meta name="keywords" content="Athabile, Dinilanga, Bart, Stheshana, Athabile Dinilanga, Cyber, Webdev, Developer, Stheshana Developers, Developers, StheshHackers">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --deep-navy: #0A0F1C;
-            --text-main: #1F2937;
-            --text-muted: #6B7280;
-            --border: rgba(0, 102, 255, 0.1);
-            --card-bg: #FFFFFF;
-            --ghost-white: #F8F8FF;
-            --electric-blue: #0070FF;
-            --dark-slate: #121212;
-            --accent-blue: #E0EAFF;
-            --glass: rgba(255, 255, 255, 0.9);
-        }
-        body.dark-mode {
-            --ghost-white: #0f172a; --deep-navy: #f8fafc; --text-main: #f1f5f9;
-            --text-muted: #94a3b8; --glass: rgba(15, 23, 42, 0.9);
-            --border: rgba(255, 255, 255, 0.1); --card-bg: #1e293b;
-        }
-        * { box-sizing: border-box; scroll-behavior: smooth; margin: 0; padding: 0; }
-
-        body {
-            background-color: var(--ghost-white);
-            font-family: 'Inter', -apple-system, sans-serif;
-            color: var(--dark-slate);
-            line-height: 1.6;
-        }
-
-        /* --- NAVIGATION --- */
-        nav {
-            padding: 15px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--glass);
-            backdrop-filter: blur(15px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0, 112, 255, 0.1);
-        }
-
-        .nav-links a { margin-left: 30px; text-decoration: none; color: var(--dark-slate); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
-        .nav-links a:hover { color: var(--electric-blue); }
-        .menu-btn { display: none; font-size: 1.5rem; cursor: pointer; color: var(--electric-blue); }
-
-        /* Sidebar */
-        .sidebar { position: fixed; top: 0; left: -100%; height: 100%; width: 250px; background: white; z-index: 2001; transition: 0.4s; padding: 50px 20px; display: flex; flex-direction: column; box-shadow: 10px 0 30px rgba(0,0,0,0.1); }
-        .sidebar a { text-decoration: none; color: var(--dark-slate); font-size: 1.2rem; margin: 15px 0; font-weight: bold; }
-        .sidebar.active { left: 0; }
-        .overlay { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:2000; }
-        .overlay.active { display: block; }
-
-        @media (max-width: 768px) { .nav-links { display: none; } .menu-btn { display: block; } }
-
-        /* --- HOME SECTION --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 10%;
-            background: radial-gradient(circle at 80% 20%, var(--accent-blue), transparent 40%),
-                        radial-gradient(circle at 10% 80%, #f0f7ff, transparent 40%);
-        }
-
-        .hero h1 { font-size: clamp(3rem, 8vw, 5rem); font-weight: 900; letter-spacing: -3px; line-height: 1; margin-bottom: 20px; }
-        .hero p { font-size: 1.2rem; max-width: 700px; color: #555; margin-bottom: 30px; }
-        .badge { background: var(--accent-blue); color: var(--electric-blue); padding: 8px 20px; border-radius: 50px; font-weight: 700; font-size: 0.8rem; margin-bottom: 15px; display: inline-block; }
-
-        /* --- ABOUT SECTION --- */
-        #about { padding: 120px 10%; background: white; }
-        .about-content { display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; align-items: center; }
-        .about-text h2 { font-size: 2.5rem; margin-bottom: 20px; border-left: 10px solid var(--electric-blue); padding-left: 20px; }
-        .skill-tag { display: inline-block; background: var(--ghost-white); border: 1px solid #eee; padding: 5px 15px; border-radius: 5px; margin: 5px; font-size: 0.9rem; font-weight: 600; color: var(--electric-blue); }
-
-        @media (max-width: 900px) { .about-content { grid-template-columns: 1fr; } }
-
-        /* --- PROJECTS GRID --- */
-        #projects { padding: 100px 10%; background: var(--ghost-white); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: white; padding: 40px; border-radius: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.02); transition: 0.4s; border: 1px solid transparent; }
-        .card:hover { transform: translateY(-10px); border-color: var(--electric-blue); box-shadow: 0 20px 40px rgba(0,112,255,0.1); }
-        .card h3 { margin-bottom: 15px; }
-        .card a { color: var(--electric-blue); text-decoration: none; font-weight: 800; font-size: 0.9rem; text-transform: uppercase; }
-
-        /* --- CHATBOT --- */
-        #chat-widget { position: fixed; bottom: 100px; right: 30px; width: 350px; background: white; border-radius: 25px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); display: none; flex-direction: column; overflow: hidden; z-index: 3000; border: 1px solid var(--accent-blue); }
-        #chat-header { background: var(--electric-blue); color: white; padding: 20px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
-        #chat-display { height: 350px; padding: 20px; overflow-y: auto; background: #fff; scrollbar-width: thin; }
-        .bot-msg { color: #222; background: var(--accent-blue); padding: 12px; border-radius: 15px 15px 15px 0; margin-bottom: 15px; font-size: 0.9rem; }
-        .user-msg { text-align: right; color: white; background: var(--electric-blue); padding: 12px; border-radius: 15px 15px 0 15px; margin-bottom: 15px; font-size: 0.9rem; align-self: flex-end; }
-        .chat-input-area { display: flex; padding: 10px; background: #f9f9f9; border-top: 1px solid #eee; }
-        #chat-input { flex: 1; border: none; padding: 12px; outline: none; background: transparent; }
-        .send-btn { background: var(--electric-blue); color: white; border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; transition: 0.3s; }
-        .send-btn:hover { transform: scale(1.1); }
-        .chat-toggle { position: fixed; bottom: 30px; right: 30px; background: var(--electric-blue); color: white; padding: 18px 30px; border-radius: 50px; cursor: pointer; font-weight: bold; z-index: 2999; box-shadow: 0 10px 30px rgba(0,112,255,0.4); }
-
-        /* --- FOOTER --- */
-        footer { padding: 60px 10%; text-align: center; border-top: 1px solid #eee; background: white; }
-        .social-icons a { font-size: 1.8rem; margin: 0 20px; color: var(--dark-slate); transition: 0.3s; }
-        .social-icons a:hover { color: var(--electric-blue); transform: scale(1.2); }
-        body { background-color: var(--ghost-white); font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text-main); transition: 0.3s; line-height: 1.7; overflow-x: hidden; }
-        nav { padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; background: var(--glass); backdrop-filter: blur(12px); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
-        .logo { font-weight: 800; font-size: 1.4rem; color: var(--deep-navy); }
-        .logo span { color: var(--electric-blue); }
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 10%; }
-        .hero h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 800; color: var(--deep-navy); margin-bottom: 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 40px 10% 80px 10%; }
-        .card { background: var(--card-bg); padding: 40px; border-radius: 24px; border: 1px solid var(--border); transition: 0.3s; display: flex; flex-direction: column; gap: 15px; }
-        .card i { font-size: 2rem; color: var(--electric-blue); }
-        .card h3 { color: var(--deep-navy); }
-        .card a { color: var(--electric-blue); text-decoration: none; font-weight: 700; margin-top: auto; }
-        .btn-primary { background: var(--electric-blue); color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; transition: 0.3s; }
-        .btn-secondary { border: 2px solid var(--border); color: var(--text-main); padding: 14px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; }
-        .dark-toggle { position: fixed; top: 20px; right: 20px; z-index: 9999; width: 45px; height: 45px; border-radius: 50%; border: none; cursor: pointer; background: var(--electric-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
-        footer { padding: 80px 10%; background: var(--deep-navy); color: var(--ghost-white); text-align: center; }
-        .social-links { display: flex; justify-content: center; gap: 25px; margin-bottom: 30px; }
-        .social-links a { color: var(--ghost-white); font-size: 1.5rem; transition: 0.3s; opacity: 0.7; }
-        .social-links a:hover { opacity: 1; color: var(--electric-blue); }
-        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button class="dark-toggle" onclick="document.body.classList.toggle('dark-mode')">🌙</button>
+
     <nav>
         <div class="logo">ATHABILE <span>DINILANGA</span></div>
-        <div style="display: flex; align-items: center; gap: 20px;">
-            <a href="mailto:dinilangaathabile@gmail.com" class="btn-primary" style="padding: 10px 20px; font-size: 0.8rem;">Hire Me</a>
+        <div class="nav-right">
+            <a href="mailto:dinilangaathabile@gmail.com" class="btn-primary">Hire Me</a>
         </div>
     </nav>
+
     <section id="home" class="hero">
-        <div class="badge" style="background: rgba(0,102,255,0.1); color: var(--electric-blue); padding: 5px 15px; border-radius: 20px; font-weight: 700; margin-bottom: 20px;">Cybersecurity Analyst & Developer</div>
+        <div class="badge">Cybersecurity Analyst & Developer</div>
         <h1>Securing the Future,<br>One Line at a Time.</h1>
-        <p id="typewriter" style="color: var(--text-muted); max-width: 600px;"></p>
-        <div style="margin-top: 30px;">
-            <a href="#contact" class="btn-secondary">Get in Touch</a>
+        <p id="typewriter"></p>
+        <div class="hero-btns">
+            <a href="#about" class="btn-secondary">Get in Touch</a>
         </div>
     </section>
+
     <section id="about">
         <div class="about-content">
             <div class="about-text">
                 <h2>The Mind Behind the Code</h2>
-                <p>My journey started with a fascination for how things work—and how they break. As a <b>Junior Pentester</b>, I think like an attacker to build like a defender. I bridge the gap between creative frontend design and rigorous backend security.</p>
-                <p style="margin-top:15px;">Whether I'm debugging a React component or running an Nmap scan, my goal is always the same: <b>Excellence</b>. I don't just write code; I craft digital fortresses.</p>
-            
-                <div style="margin-top: 30px;">
+                <p>My journey started with a fascination for how things work—and how they break. As a <b>Junior Pentester</b>, I think like an attacker to build like a defender.</p>
+                
+                <div class="tech-stack">
                     <h4>Technical Armory:</h4>
-                    <span class="skill-tag">HTML5 / CSS3</span> <span class="skill-tag">JavaScript (ES6+)</span>
-                    <span class="skill-tag">Python</span> <span class="skill-tag">Kali Linux</span>
-                    <span class="skill-tag">Metasploit</span> <span class="skill-tag">Penetration Testing</span>
-                    <span class="skill-tag">Network Security</span> <span class="skill-tag">React / Next.js</span>
+                    <span class="skill-tag">HTML5 / CSS3</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Kali Linux</span>
+                    <span class="skill-tag">Metasploit</span>
+                    <span class="skill-tag">React / Next.js</span>
                 </div>
             </div>
-            <div style="background: var(--accent-blue); padding: 40px; border-radius: 30px; text-align:center;">
-                <i class="fas fa-shield-alt" style="font-size: 5rem; color: var(--electric-blue); margin-bottom: 20px;"></i>
-                <h3 style="color: var(--electric-blue);">Certified Mindset</h3>
-                <p style="font-size: 0.9rem; color: #555;">Focused on OWASP Top 10, Ethical Hacking, and building responsive, accessible web architecture.</p>
+            <div class="about-visual">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Certified Mindset</h3>
+                <p>Focused on OWASP Top 10 and Ethical Hacking.</p>
             </div>
         </div>
     </section>
+
     <section id="projects">
-        <h2 style="text-align: center; color: var(--deep-navy); font-size: 2.2rem;" class="reveal">Production Deployments</h2>
+        <h2 class="section-title reveal">Production Deployments</h2>
         <div class="grid">
-            <div class="card reveal"><i class="fas fa-shield-halved"></i><h3>StheshHackers</h3><p>Penetration testing utility for web infrastructure.</p><a href="https://stheshana07.github.io/stheshHackers-hackingtool/" target="_blank">Analyze Tool →</a></div>
-            <div class="card reveal"><i class="fas fa-brain"></i><h3>StheshBot AI</h3><p>Advanced AI conversational interface.</p><a href="https://stheshbot.vercel.app" target="_blank">Launch AI →</a></div>
-            <div class="card reveal"><i class="fas fa-temperature-high"></i><h3>Sthesh Weather</h3><p>Dynamic meteorological data platform.</p><a href="https://stheshweather.netlify.app" target="_blank">Check Status →</a></div>
-            <div class="card reveal"><i class="fas fa-stopwatch-20"></i><h3>Sthesh Countdown</h3><p>Security-focused event tracking utility.</p><a href="https://stheshcountdown.netlify.app" target="_blank">Open Utility →</a></div>
+            <div class="card reveal">
+                <i class="fas fa-shield-halved"></i>
+                <h3>StheshHackers</h3>
+                <p>Penetration testing utility for web infrastructure.</p>
+                <a href="https://stheshana07.github.io/stheshHackers-hackingtool/" target="_blank">Analyze Tool →</a>
+            </div>
+            <div class="card reveal">
+                <i class="fas fa-brain"></i>
+                <h3>StheshBot AI</h3>
+                <p>Advanced AI conversational interface.</p>
+                <a href="https://stheshbot.vercel.app" target="_blank">Launch AI →</a>
+            </div>
         </div>
     </section>
     
     <footer>
         <div class="social-links">
             <a href="https://github.com/stheshana07" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://tiktok.com/@stheshana07" target="_blank"><i class="fab fa-tiktok"></i></a>
             <a href="https://za.linkedin.com/in/athabile-dinilanga-744309377" target="_blank"><i class="fab fa-linkedin"></i></a>
         </div>
-        <p style="opacity: 0.5; font-size: 0.85rem;">© 2026 Athabile Dinilanga. Engineered for Security & Speed.</p>
+        <p class="copyright">© 2026 Athabile Dinilanga. Engineered for Security & Speed.</p>
     </footer>
-    <div class="chat-toggle" onclick="toggleChat()">StheshBot AI</div>
+
+    <div class="chat-toggle" id="chatToggle">StheshBot AI</div>
 
     <div id="chat-widget">
         <div id="chat-header">
             <span>StheshBot AI v2.0</span>
-            <span style="cursor:pointer" onclick="toggleChat()">×</span>
+            <span class="close-chat" id="closeChat">×</span>
         </div>
         <div id="chat-display">
-            <div class="bot-msg">System: Initialized. <br><br> Yo! It's Bart. Type <b>'help'</b> to see what I can do for you.</div>
+            <div class="bot-msg">System: Initialized. <br><br> Yo! It's Bart. Type <b>'help'</b> for commands.</div>
         </div>
         <div class="chat-input-area">
-            <input type="text" id="chat-input" placeholder="Type a message..." onkeypress="if(event.key==='Enter')sendMessage()">
-            <button class="send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            <input type="text" id="chat-input" placeholder="Type a message...">
+            <button class="send-btn" id="sendBtn"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
-    
-    <img src="image1.jpg" width="0" height="0">
-    <img src="image2.jpg" width="0" height="0">
-    <img src="image3.jpg" width="0" height="0">
-    <img src="image4.jpg" width="0" height="0">
-    <img src="image5.jpg" width="0" height="0">
-    <img src="image6.jpg" width="0" height="0">
-    <img src="image7.jpg" width="0" height="0">
-    <img src="image8.jpg" width="0" height="0">
-    <img src="image9.jpg" width="0" height="0">
-    <img src="image10.jpg" width="0" height="0">
-    <img src="image11.jpg" width="0" height="0">
-    <img src="image12.jpg" width="0" height="0">
-    <img src="image13.jpg" width="0" height="0">
-    <img src="sthesh_portfolio.png" width="0" height="0">
-    <script>
-    const typeText = `I am a South African based Web Developer and Cybersecurity Analyst.
-    I specialize in building high-performance web applications and ensuring they are resilient against modern cyber threats.
-    I use the "if not secured it's unfit" rule.`;
-    
-    let index = 0; 
-    const speed = 35;
 
-    function startTypewriter() {
-        const element = document.getElementById("typewriter");
-        if (index < typeText.length) {
-            element.innerHTML += typeText.charAt(index);
-            index++;
-            setTimeout(startTypewriter, speed);
-        }
-    }
-
-    // Use this instead of window.onload to avoid conflicts
-    document.addEventListener("DOMContentLoaded", () => {
-        startTypewriter();
-        reveal(); // Initial check for reveal elements
-    });
-
-    function reveal() { 
-        document.querySelectorAll(".reveal").forEach(r => { 
-            if (r.getBoundingClientRect().top < window.innerHeight - 100) {
-                r.classList.add("active");
-            }
-        }); 
-    }
-
-    window.onscroll = reveal;
-</script>
-    <script src="darkmode.js"></script>
-        <script>
-        function toggleChat() {
-            const chat = document.getElementById('chat-widget');
-            chat.style.display = (chat.style.display === 'flex') ? 'none' : 'flex';
-        }
-
-        const responses = {
-            "help": "Here are the commands I recognize: <br><br> <b>'skills'</b> - My tech stack <br> <b>'hacking'</b> - My security tools <br> <b>'projects'</b> - My portfolio links <br> <b>'contact'</b> - How to reach me <br> <b>'dwa'</b> - The vibe",
-            "hi": "Hey I'm StheshBot, your friendly chatbot. how may I assist you today?.",
-            "skills": "Athabile is lethal with HTML, CSS, JS, Python, and Kali Linux. Building and securing is his primary job.",
-            "hacking": "Check out StheshHackers. If you're not secured by Mr. Dinilanga Sir, you're cooked.",
-            "projects": "I've built Weather apps, AI bots, and Hacking tools. Scroll up to 'Featured Deployments' to see them live!",
-            "contact": "WhatsApp: +27 66 085 1108 <br> Email: dinilangaathabile@gmail.com",
-            "secure": "Stay protected or get cooked. That's the cyber law, you know where to find Mr Dinilanga...<br> if you don't, scroll to the very bottom of this website."
-        };
-
-        function sendMessage() {
-            const input = document.getElementById('chat-input');
-            const display = document.getElementById('chat-display');
-            const val = input.value.trim().toLowerCase();
-            if (val === "") return;
-
-            display.innerHTML += `<div class="user-msg">${input.value}</div>`;
-            
-            let reply = "It's chaii, I don't know that one. Type <b>'help'</b> for a list of commands.";
-            
-            for (let key in responses) {
-                if (val.includes(key)) { reply = responses[key]; break; }
-            }
-
-            setTimeout(() => {
-                display.innerHTML += `<div class="bot-msg"><b>StheshBot:</b> ${reply}</div>`;
-                display.scrollTop = display.scrollHeight;
-            }, 400);
-
-            input.value = '';
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
