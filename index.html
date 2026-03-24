@@ -141,6 +141,14 @@
             border: 1px solid rgba(0, 102, 255, 0.2);
         }
 
+        #typewriter {
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre-wrap; /* Preserves your line breaks and spaces */
+            color: #00ff00; /* Classic Kali terminal green */
+            background: #000;
+            padding: 20px;
+        }
+
         .hero h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 800; color: var(--deep-navy); line-height: 1.1; margin-bottom: 20px; }
         .hero p { font-size: 1.15rem; max-width: 650px; color: var(--text-muted); margin-bottom: 40px; }
 
@@ -370,7 +378,10 @@
           })
         }).catch(err => console.log("Monitor offline"));
         // 1. Typewriter
-        const text = `Specializing in Building High-Performance, Resilient Web Applications<br><br>and Advanced Security Analysis. I always use the, 'if not secured, then it is unfit' principle.<br><br>I believe in, "Every Developer's single line of code advances technology... as long as it does not contain bugs."<br><br>By Athabile Dinilanga`;
+        const text = `Specializing in Building High-Performance, Resilient Web Applications
+        and Advanced Security Analysis. I always use the, 'if not secured, then it is unfit' principle.
+        I believe in, "Every Developer's single line of code advances technology... as long as it does not contain bugs."
+        By Athabile Dinilanga`;
         let i = 0;
         function typeWriter() {
             if (i < text.length) {
